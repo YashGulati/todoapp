@@ -9,13 +9,12 @@ class TodoCard extends React.Component {
     const div_style = {
       background: '#99cc99',
       color: 'white',
-      display: 'inline',
       padding: 10,
       fontSize: 22,
-      margin: 10,
+      marginBottom: 15,
     }
     return (
-      <div style={ div_style }> Content: {this.props.text} </div>
+      <div class="col-md-6 text-center offset-md-3" style={ div_style }> Content: {this.props.text} </div>
     )
   }
 }
@@ -25,12 +24,18 @@ class TodoCards extends React.Component {
     super(props)
   }
   render() {
+    let todolist = [1,3,4,5,9];
     return (
       <div>
-        <TodoCard text='Todo 1' />
-        <TodoCard text='Todo 2' />
-        <TodoCard text='Todo 3' />
-        <TodoCard text='Todo 4' />
+        {
+          todolist.map( (todo) => {
+            return <TodoCard text={'Todo no' + todo} />
+          })
+        }
+
+        <TodoCard text='Todo no 2' />
+        <TodoCard text='Todo no 3' />
+        <TodoCard text='Todo no 4' />
       </div>
     )
   }
