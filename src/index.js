@@ -1,23 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 const styles = require('./index.styl')
-class TodoCard extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    const div_style = {
-      background: '#99cc99',
-      color: 'white',
-      padding: 10,
-      fontSize: 22,
-      marginBottom: 15,
-    }
-    return (
-      <div class="col-md-6 text-center offset-md-3" style={ div_style }> Content: {this.props.text} </div>
-    )
-  }
-}
+import TodoCard from './components/TodoCard'
 
 class TodoCards extends React.Component {
   constructor(props) {
