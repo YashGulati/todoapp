@@ -1,6 +1,6 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-
+const styles = require('./index.styl')
 class TodoCard extends React.Component {
   constructor(props) {
     super(props)

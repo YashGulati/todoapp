@@ -17,7 +17,11 @@
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "style-loader": "^0.21.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
   }
 }

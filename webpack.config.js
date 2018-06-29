@@ -15,6 +15,14 @@ module.exports = {
                 exclude: path.resolve(__dirname, './node_modules'),
                 loader: 'babel-loader',
             },
+            {
+                test: /\.css$/,
+                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+            },
+            {
+                test: /\.styl$/,
+                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'stylus-loader' }],
+            },
         ],
     },
 };
