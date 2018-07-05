@@ -4,27 +4,33 @@ export default class TodoCards extends React.Component {
   constructor(props) {
     super(props)
     this.next_id = 14
-    this.state = { todolist: [
-      { id: 10, time: '10:10:10', content: 'first todo' },
-      { id: 11, time: '11:10:10', content: 'second todo' },
-      { id: 12, time: '12:10:10', content: 'third todo' },
-      { id: 13, time: '13:10:10', content: 'fourth todo' },
-    ]}
+    this.state = { todolist: []}
   }
+  getTodos = () => {
+    fetch('/get-todos').then( (res) => {
+      return res.json()
+    }).then( (todolist) => {
+      this.setState({todolist})
+    })
+  }
+  componentWillMount() {
+    this.getTodos()
+  }
+
   onChange = (e) => {
     const new_content = e.target.value
     this.setState({ new_content })
   }
   onSubmit = (e) => {
     e.preventDefault()
-    const new_todolist = this.state.todolist
-    const new_obj = {
-      id: this.next_id++,
-      time: new Date().toString(),
-      content: this.state.new_content,
-    }
-    new_todolist.push(new_obj)
-    this.setState({ todolist: new_todolist })
+
+    fetch('/add-todo/?content='+this.state.new_content).then((res) => {
+      return res.json()
+    }).then((res) => {
+      console.log(res)
+      if (res.status == 'success') this.getTodos()
+    })
+
   }
   render() {
     return (
