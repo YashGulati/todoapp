@@ -23,8 +23,12 @@ export default class TodoCards extends React.Component {
   }
   onSubmit = (e) => {
     e.preventDefault()
-
-    fetch('/add-todo/?content='+this.state.new_content).then((res) => {
+    const params = { content: this.state.new_content }
+    fetch('/add-todo', {
+    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    body: JSON.stringify(params)
+  }).then((res) => {
       return res.json()
     }).then((res) => {
       console.log(res)
