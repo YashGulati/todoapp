@@ -13,12 +13,15 @@ router.post('/add-todo', (req, res) => {
   })
 })
 
-router.get('/about', (req,res) => {
-  res.send('hi')
-})
-
 router.get('/get-todos', (req, res) => {
   Todo.find({}, (err, todos) => {
     res.send(todos)
   })
+})
+
+router.post('/delete-todo', (req, res) => {
+  Todo.deleteOne({ _id: req.body._id }, function (err) {
+  if (err) return res.send('error happened.')
+  res.send({ status: 'success' })
+  });
 })

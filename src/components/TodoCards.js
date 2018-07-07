@@ -41,7 +41,7 @@ export default class TodoCards extends React.Component {
       <div>
         {
           this.state.todolist.map( (todo, i) => {
-            return <TodoCard key={i} todo={todo} />
+            return <TodoCard key={i} todo={todo} getTodos={this.getTodos} />
           })
         }
         <form onSubmit={this.onSubmit} className="col-md-6 offset-md-3">
